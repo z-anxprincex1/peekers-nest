@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Search {
+  id          String   @id @default(cuid())
+  query       String
+  resultCount Int
+  createdAt   DateTime @default(now())
+}
+
+model CachedSearchResult {
+  id        String   @id @default(cuid())
+  query     String   @unique
+  payload   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SeedProduct {
+  id             String   @id @default(cuid())
+  title          String
+  source         String
+  price          Float
+  originalPrice  Float?
+  rating         Float
+  reviewCount    Int
+  trustScore     Float
+  category       String
+  createdAt      DateTime @default(now())
+}
