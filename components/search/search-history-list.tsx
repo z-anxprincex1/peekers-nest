@@ -37,12 +37,12 @@ export function SearchHistoryList({ items }: { items: SearchHistoryItem[] }) {
             className="flex flex-1 items-center gap-2 text-left"
             onClick={() => setOpen((value) => !value)}
           >
-            <Clock3 className="h-3.5 w-3.5 text-white/75" />
-            <h2 className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
+            <Clock3 className="h-3.5 w-3.5 text-foreground/75" />
+            <h2 className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-foreground/80">
               Recent searches
             </h2>
             <ChevronDown
-              className={`h-3.5 w-3.5 text-white/55 transition ${open ? "rotate-180" : ""}`}
+              className={`h-3.5 w-3.5 text-foreground/55 transition ${open ? "rotate-180" : ""}`}
             />
           </button>
 
@@ -50,7 +50,7 @@ export function SearchHistoryList({ items }: { items: SearchHistoryItem[] }) {
             <Button
               variant="ghost"
               size="sm"
-              className="h-8 rounded-full px-3 text-[10px] uppercase tracking-[0.18em] text-white/70"
+              className="h-8 rounded-full px-3 text-[10px] uppercase tracking-[0.18em] text-foreground/70"
               onClick={handleClear}
               disabled={clearing}
             >
@@ -67,9 +67,9 @@ export function SearchHistoryList({ items }: { items: SearchHistoryItem[] }) {
               <Link
                 key={item.id}
                 href={`/search?q=${encodeURIComponent(item.query)}`}
-                className="flex items-center justify-between rounded-[1rem] border border-white/8 bg-white/[0.025] px-3 py-2.5 transition hover:bg-white/[0.06]"
+                className="flex items-center justify-between rounded-[1rem] border border-border bg-card/60 px-3 py-2.5 transition hover:bg-card"
               >
-                <span className="max-w-[70%] truncate text-xs uppercase tracking-[0.08em] text-white/82">
+                <span className="max-w-[70%] truncate text-xs uppercase tracking-[0.08em] text-foreground/82">
                   {item.query}
                 </span>
                 <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">

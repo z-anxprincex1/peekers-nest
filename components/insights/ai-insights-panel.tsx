@@ -12,9 +12,9 @@ export function AiInsightsPanel({
   summary?: AiDealSummary;
   comparison?: AiComparisonSummary;
 }) {
-  if (!summary && !comparison) return null;
-
   const [open, setOpen] = useState(false);
+
+  if (!summary && !comparison) return null;
 
   return (
     <Card className="overflow-hidden">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Manrope, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 
@@ -21,8 +22,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${fontSans.variable} ${fontDisplay.variable}`}>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            try {
+              const saved = localStorage.getItem('peekersnest-theme');
+              const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+              document.documentElement.classList.toggle('dark', theme === 'dark');
+            } catch {}
+          `}
+        </Script>
         <Navbar />
         {children}
       </body>

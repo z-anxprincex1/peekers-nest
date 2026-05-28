@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { Bird, History, Scale } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-40 border-b border-white/5 bg-slate-950/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur-xl">
       <div className="page-shell flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-primary/90 text-primary-foreground">
@@ -16,6 +17,7 @@ export function Navbar() {
         </Link>
 
         <nav className="flex items-center gap-2">
+          <ThemeToggle />
           <Button asChild variant="ghost" size="sm">
             <Link href="/search?q=wireless%20noise%20cancelling%20headphones">
               <History className="mr-2 h-4 w-4" />

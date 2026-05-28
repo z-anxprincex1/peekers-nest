@@ -6,7 +6,8 @@ const trustScores: Record<StoreName, number> = {
   Amazon: 0.88,
   "Best Buy": 0.91,
   Walmart: 0.83,
-  Target: 0.8
+  Target: 0.8,
+  eBay: 0.78
 };
 
 function createProductId(source: StoreName, title: string) {

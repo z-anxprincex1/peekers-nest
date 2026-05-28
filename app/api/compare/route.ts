@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     const { productIds, query, products } = compareRequestSchema.parse(body);
     const selected =
       products && products.length >= 2
-        ? (products as ProductListing[])
+        ? (products as unknown as ProductListing[])
         : sortListings(scoreListings(await aggregateListings(query))).filter((product) =>
             productIds.includes(product.id)
           );

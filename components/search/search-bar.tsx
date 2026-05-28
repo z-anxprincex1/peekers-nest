@@ -33,7 +33,7 @@ export function SearchBar({
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Search deals, products, or use a natural language shopping query..."
-          className="h-14 border-transparent bg-slate-900/70 pl-11"
+          className="h-14 border-border bg-background/80 pl-11 shadow-sm"
         />
       </div>
       <Button type="submit" size="lg" className="h-14 min-w-36">
