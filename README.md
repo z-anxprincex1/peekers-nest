@@ -53,6 +53,35 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+## Running with Docker
+
+A `Dockerfile` and `.dockerignore` are included at the project root.
+
+1. Build the image:
+
+```bash
+docker build -t peekers-nest .
+```
+
+2. Run the container, passing in your environment file:
+
+```bash
+docker run -p 3000:3000 --env-file .env.local peekers-nest
+```
+
+Open `http://localhost:3000`.
+
+Notes:
+
+- `SCRAPERAPI_KEY`, `OPENAI_API_KEY`, and `OPENAI_MODEL` must be present in the file you pass to `--env-file`, or search and AI routes will return errors at request time.
+- If your keys live in `.env.local` and your database URL in `.env`, pass both (later files override earlier ones):
+
+```bash
+docker run -p 3000:3000 --env-file .env --env-file .env.local peekers-nest
+```
+
+- Never bake secrets into the image — always pass them at run time via `--env-file` or `-e KEY=value`.
+
 ## Project Structure
 
 ```text
